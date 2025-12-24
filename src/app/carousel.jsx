@@ -2,24 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { CarouselCard } from "@/app/carousel-card";
-
-const carouselCardsList = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 6 },
-  { id: 7 },
-  { id: 8 },
-  { id: 9 },
-  { id: 10 },
-  { id: 11 },
-  { id: 12 },
-];
-
-export function Carousel() {
+export function Carousel({ children, itemsGapClassName = "gap-x-5" }) {
   const containerRef = useRef(null);
   const [isLeftEnd, setIsLeftEnd] = useState(true);
   const [isRightEnd, setIsRightEnd] = useState(false);
@@ -28,19 +11,20 @@ export function Carousel() {
     const container = containerRef.current;
     if (!container) return 0;
 
-    const card = container.querySelector("li");
-    if (!card) return 0;
+    const item = container.firstElementChild;
+    if (!item) return 0;
 
+    const itemWidth = item.getBoundingClientRect().width;
     const containerStyles = window.getComputedStyle(container);
     const gap =
       parseFloat(containerStyles.gap) ||
       parseFloat(containerStyles.columnGap) ||
       0;
 
-    return card.offsetWidth + gap;
+    return itemWidth + gap;
   };
 
-  const prevCard = () => {
+  const prevItem = () => {
     const scrollAmount = getScrollAmount();
     if (!scrollAmount) return;
 
@@ -50,7 +34,7 @@ export function Carousel() {
     });
   };
 
-  const nextCard = () => {
+  const nextItem = () => {
     const scrollAmount = getScrollAmount();
     if (!scrollAmount) return;
 
@@ -91,7 +75,7 @@ export function Carousel() {
   return (
     <div className="flex items-center justify-center gap-x-10 py-10">
       <button
-        onClick={prevCard}
+        onClick={prevItem}
         disabled={isLeftEnd}
         className="bg-red-400 hidden lap:block cursor-pointer p-3 disabled:opacity-70 disabled:cursor-not-allowed"
       >
@@ -100,15 +84,13 @@ export function Carousel() {
 
       <ul
         ref={containerRef}
-        className="flex gap-x-5 overflow-x-scroll scrollbar-hide"
+        className={`flex overflow-x-auto scrollbar-hide ${itemsGapClassName}`}
       >
-        {carouselCardsList.map((card) => {
-          return <CarouselCard key={card.id} card={card} />;
-        })}
+        {children}
       </ul>
 
       <button
-        onClick={nextCard}
+        onClick={nextItem}
         disabled={isRightEnd}
         className="bg-red-400 hidden lap:block cursor-pointer p-3 disabled:opacity-70 disabled:cursor-not-allowed"
       >

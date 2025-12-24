@@ -84,7 +84,7 @@ export function Carousel({ children, itemsGapClassName = "gap-x-5" }) {
 
       <ul
         ref={containerRef}
-        className={`flex overflow-x-auto scrollbar-hide ${itemsGapClassName}`}
+        className={`flex overflow-x-auto scrollbar-hide snap-x snap-mandatory ${itemsGapClassName}`}
       >
         {children}
       </ul>

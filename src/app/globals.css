@@ -1,21 +1,45 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-mob: 375px;
+  --breakpoint-tab: 768px;
+  --breakpoint-lap: 1280px;
+  --breakpoint-desk: 1440px;
+}
+
 @layer base {
   body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
+}
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+@layer components {
+  .main-container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20;
+
+    @media (min-width: 375px) {
+      width: 375px;
+    }
+
+    @media (min-width: 768px) {
+      width: 768px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 1280px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 1440px;
+    }
   }
 
-  svg {
-    display: block;
-    width: 100%;
-    height: auto;
+  .scrollbar-hide {
+    scrollbar-width: none;
   }
 }

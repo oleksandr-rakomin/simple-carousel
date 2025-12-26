@@ -16,6 +16,7 @@ const carouselItemsList = [
   { id: 12 },
 ];
 
+const carouselId = "carousel";
 const itemsGapClassName = "gap-x-5";
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
       <div className="main-container bg-purple-300">
         <h1 className="text-center text-3xl">Simple Carousel</h1>
 
-        <Carousel itemsGapClassName={itemsGapClassName}>
+        <Carousel itemsGapClassName={itemsGapClassName} carouselId={carouselId}>
           {carouselItemsList.map((item) => {
             return <CarouselItem key={item.id} item={item} />;
           })}

@@ -1,0 +1,12 @@
+export { default as absol } from "./absol.png";
+export { default as angryPikachu } from "./angry-pikachu.png";
+export { default as articuno } from "./articuno.png";
+export { default as bulbasaur } from "./bulbasaur.png";
+export { default as butterfree } from "./butterfree.png";
+export { default as chansey } from "./chansey.png";
+export { default as charizard } from "./charizard.png";
+export { default as meowth } from "./meowth.png";
+export { default as moltres } from "./moltres.png";
+export { default as nidoqueen } from "./nidoqueen.png";
+export { default as persian } from "./persian.png";
+export { default as squirtle } from "./squirtle.png";

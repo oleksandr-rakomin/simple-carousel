@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function Carousel({ children, itemsGapClassName = "gap-x-5" }) {
+export function Carousel({
+  children,
+  itemsGapClassName = "gap-x-5",
+  carouselId,
+}) {
   const containerRef = useRef(null);
   const [isLeftEnd, setIsLeftEnd] = useState(true);
   const [isRightEnd, setIsRightEnd] = useState(false);
@@ -75,8 +79,11 @@ export function Carousel({ children, itemsGapClassName = "gap-x-5" }) {
   return (
     <div className="flex items-center justify-center gap-x-10 py-10">
       <button
+        type="button"
         onClick={prevItem}
         disabled={isLeftEnd}
+        aria-label="Scroll carousel left"
+        aria-controls={carouselId}
         className="bg-red-400 hidden lap:block cursor-pointer p-3 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {"<"}
@@ -84,14 +91,24 @@ export function Carousel({ children, itemsGapClassName = "gap-x-5" }) {
 
       <ul
         ref={containerRef}
-        className={`flex overflow-x-auto scrollbar-hide snap-x snap-mandatory ${itemsGapClassName}`}
+        id={carouselId}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Product carousel"
+        className={[
+          "flex overflow-x-auto scrollbar-hide snap-x snap-mandatory",
+          itemsGapClassName,
+        ].join(" ")}
       >
         {children}
       </ul>
 
       <button
+        type="button"
         onClick={nextItem}
         disabled={isRightEnd}
+        aria-label="Scroll carousel right"
+        aria-controls={carouselId}
         className="bg-red-400 hidden lap:block cursor-pointer p-3 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {">"}

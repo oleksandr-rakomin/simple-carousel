@@ -1,19 +1,34 @@
 import { Carousel } from "@/app/carousel";
 import { CarouselItem } from "@/app/carousel-item";
 
+import {
+  absol,
+  angryPikachu,
+  articuno,
+  bulbasaur,
+  butterfree,
+  chansey,
+  charizard,
+  meowth,
+  moltres,
+  nidoqueen,
+  persian,
+  squirtle,
+} from "@/assets/images/pokemon";
+
 const carouselItemsList = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 6 },
-  { id: 7 },
-  { id: 8 },
-  { id: 9 },
-  { id: 10 },
-  { id: 11 },
-  { id: 12 },
+  { id: 1, src: absol, alt: "Absol pokemon" },
+  { id: 2, src: angryPikachu, alt: "Angry pikachu pokemon" },
+  { id: 3, src: articuno, alt: "Articuno pokemon" },
+  { id: 4, src: bulbasaur, alt: "Bulbasaur pokemon" },
+  { id: 5, src: butterfree, alt: "Butterfree pokemon" },
+  { id: 6, src: chansey, alt: "Chansey pokemon" },
+  { id: 7, src: charizard, alt: "Charizard pokemon" },
+  { id: 8, src: meowth, alt: "Meowth pokemon" },
+  { id: 9, src: moltres, alt: "Moltres pokemon" },
+  { id: 10, src: nidoqueen, alt: "Nidoqueen pokemon" },
+  { id: 11, src: persian, alt: "Persian pokemon" },
+  { id: 12, src: squirtle, alt: "Squirtle pokemon" },
 ];
 
 const carouselId = "carousel";

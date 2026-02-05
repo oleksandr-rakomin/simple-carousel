@@ -1,6 +1,6 @@
 # Simple carousel
 
-### Low Complexity — ~8 hours
+## Low Complexity — ~8 hours
 
 - Basic carousel implementation
 - Styled cards with images
@@ -9,7 +9,7 @@
 
 ---
 
-### Medium Complexity — ~16 hours
+## Medium Complexity — ~16 hours
 
 - Snap-to-card behavior
 - Dots / indicators
@@ -19,7 +19,7 @@
 
 ---
 
-### High Complexity — ~32 hours
+## High Complexity — ~32 hours
 
 - Swipe / drag support
 - Autoplay with pause on interaction
